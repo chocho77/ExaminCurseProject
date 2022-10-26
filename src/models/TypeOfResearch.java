@@ -1,2 +1,4 @@
-package models;public class TypeOfResearch {
+package models;
+
+public class TypeOfResearch {
 }
