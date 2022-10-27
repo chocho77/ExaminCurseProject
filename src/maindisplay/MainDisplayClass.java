@@ -1,8 +1,13 @@
 package maindisplay;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import lab.Lab;
+import models.Pacient;
+import models.TypeOfResearch;
+import service.Service;
 import subdisplays.SubAddRemMedTechnologist;
 import subdisplays.SubAddRemPacient;
 
@@ -11,6 +16,12 @@ public class MainDisplayClass {
     private Lab lab = new Lab();
     private SubAddRemMedTechnologist subAddRemMedTechnologist = new SubAddRemMedTechnologist();
     private SubAddRemPacient subAddRemPacient = new SubAddRemPacient();
+
+    private Service service = new Service();
+
+    private List<TypeOfResearch> lstTypeOfResearch = new ArrayList<>();
+
+    private List<Pacient> lstPacient = new ArrayList<>();
     private boolean exit;
     private void setNameLab() {
         lab.setNameOfLab("City Clicnik");
@@ -70,10 +81,21 @@ public class MainDisplayClass {
         switch(choice) {
 
             case 1:
-                pickColor();
+                setListOfTypeOfResearch();
+                lstTypeOfResearch = service.getListOfResearch();
+                for (int i = 0; i < lstTypeOfResearch.size(); i++){
+                    System.out.println("Type of Research : " + lstTypeOfResearch.get(i).getNameOfResearch() + " "
+                                      + "Price of Research : " + lstTypeOfResearch.get(i).getPriceOfResearch());
+                }
+
                 break;
             case 2:
-                pickShape();
+                setListOfPacient();
+                lstPacient = service.getListOfPacient();
+                for(int i = 0; i < lstPacient.size(); i++){
+                    System.out.println("Pacient Name : " + lstPacient.get(i).getName() + " Amount of Health Insurance : " +
+                            lstPacient.get(i).getHealthInsuranceAmount());
+                }
                 break;
             case 3:
                 subAddRemPacient.runMenu();
@@ -91,6 +113,14 @@ public class MainDisplayClass {
                 System.out.println("An unknown error has occured.");
 
         }
+    }
+
+    private void setListOfTypeOfResearch(){
+        service.setListOfResearch();
+    }
+
+    private void setListOfPacient(){
+        service.setListOfPacient();
     }
 
     private void pickColor() {

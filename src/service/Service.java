@@ -10,6 +10,12 @@ import java.util.List;
 
 public class Service {
 
+    private List<TypeOfResearch> listOfResearch= new ArrayList<>();
+
+    private List<Pacient> listOfPacient = new ArrayList<>();
+
+
+
     public Service() {
 
     }
@@ -20,8 +26,8 @@ public class Service {
         TypeOfResearch typeOfResearchTwo = new TypeOfResearch("Search name two", 34.45);
         TypeOfResearch typeOfResearchThree = new TypeOfResearch("Search name three", 65.45);
         TypeOfResearch typeOfResearchFour = new TypeOfResearch("Search name four", 123.22);
-        //////////////////
-        List<TypeOfResearch> listOfResearch= new ArrayList<>();
+
+        // Add into the list of Research
         listOfResearch.add(typeOfResearchOne);
         listOfResearch.add(typeOfResearchTwo);
         listOfResearch.add(typeOfResearchThree);
@@ -43,7 +49,7 @@ public class Service {
         Pacient pacientThree = new Pacient("Misho", 7890.78);
         Pacient pacientFour = new Pacient("Kristiyan", 2456.43);
         ////////////////////////////////////////////////
-        List<Pacient> listOfPacient = new ArrayList<>();
+
         listOfPacient.add(pacient);
         listOfPacient.add(pacientOne);
         listOfPacient.add(pacientThree);
@@ -53,6 +59,46 @@ public class Service {
         Lab lab = new Lab("City Clinick",listOfResearch,listOfMedicalTechnologist,listOfPacient);
 
         return lab;
+
+    }
+
+    public List<TypeOfResearch> getListOfResearch() {
+
+        return this.listOfResearch;
+    }
+
+    public void setListOfResearch() {
+        TypeOfResearch typeOfResearchOne = new TypeOfResearch("Search name one", 45.0);
+        TypeOfResearch typeOfResearchTwo = new TypeOfResearch("Search name two", 34.45);
+        TypeOfResearch typeOfResearchThree = new TypeOfResearch("Search name three", 65.45);
+        TypeOfResearch typeOfResearchFour = new TypeOfResearch("Search name four", 123.22);
+
+        // Add into the list of Research
+        listOfResearch.add(typeOfResearchOne);
+        listOfResearch.add(typeOfResearchTwo);
+        listOfResearch.add(typeOfResearchThree);
+        listOfResearch.add(typeOfResearchFour);
+
+    }
+
+    public void setListOfPacient() {
+
+        Pacient pacient = new Pacient("Pesho", 2123.45);
+        Pacient pacientOne = new Pacient("Gosho", 3456.67);
+        Pacient pacientThree = new Pacient("Misho", 7890.78);
+        Pacient pacientFour = new Pacient("Kristiyan", 2456.43);
+        ////////////////////////////////////////////////
+
+        listOfPacient.add(pacient);
+        listOfPacient.add(pacientOne);
+        listOfPacient.add(pacientThree);
+        listOfPacient.add(pacientFour);
+        /////////////////////////////////////////////////////
+
+    }
+
+    public List<Pacient> getListOfPacient() {
+        return this.listOfPacient;
 
     }
 }
