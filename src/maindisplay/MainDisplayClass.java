@@ -92,7 +92,7 @@ public class MainDisplayClass {
             case 2:
                 setListOfPacient();
                 this.lstPacient = service.getListOfPacient();
-                for(int i = 0; i < lstPacient.size(); i++){
+                for(int i = 0; i < this.lstPacient.size(); i++){
                     System.out.println("Pacient Name : " + lstPacient.get(i).getName() + " Amount of Health Insurance : " +
                             lstPacient.get(i).getHealthInsuranceAmount());
                 }
@@ -107,6 +107,14 @@ public class MainDisplayClass {
 
                 break;
             case 4:
+                Scanner sc = new Scanner(System.in);
+                for(int i = 0; i < this.lstPacient.size(); i++){
+                    System.out.println("Record Number : " + i);
+                }
+
+                System.out.println("Which Record Number to be deleted ? -> ");
+                int number = sc.nextInt();
+                this.lstPacient.remove(number);
 
                 break;
             case 5:
