@@ -1,10 +1,21 @@
 package subdisplays;
 
+import models.Pacient;
+import service.AddRemovePacientService;
+import service.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class SubAddRemPacient {
 
     private boolean exit;
+    private AddRemovePacientService addRemovePacientService = new AddRemovePacientService();
+    private Service service = new Service();
+
+    private Pacient pacient = new Pacient();
+    private List<Pacient>  lstPacient = new ArrayList<>();
 
 
     private void printHeader() {
@@ -21,6 +32,7 @@ public class SubAddRemPacient {
         System.out.println("0.Exit");
         System.out.println("1. Add Pecient.");
         System.out.println("2. Remove Pecient.");
+        System.out.println("3. List of Pacients.");
 
     }
 
@@ -60,10 +72,21 @@ public class SubAddRemPacient {
                 this.exit = true;
                 break;
             case 1:
-                System.out.println("Choice 1");
+                this.service.setListOfPacient();
+                this.lstPacient = service.getListOfPacient();
+                this.addRemovePacientService.AddPacient();
+                this.pacient = this.addRemovePacientService.getPacient();
+                this.lstPacient.add(this.pacient);
+
                 break;
             case 2:
                 System.out.println("Choice 2");
+                break;
+            case 3:
+                for(int i = 0; i < this.lstPacient.size(); i++) {
+                    System.out.println("Pacient Name " + this.lstPacient.get(i).getName() + " Insurance Health Amount : " +
+                            this.lstPacient.get(i).getHealthInsuranceAmount());
+                }
                 break;
             default:
                 System.out.println("An unknown error has occured.");

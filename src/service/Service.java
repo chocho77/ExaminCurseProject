@@ -89,10 +89,10 @@ public class Service {
         Pacient pacientFour = new Pacient("Kristiyan", 2456.43);
         ////////////////////////////////////////////////
 
-        listOfPacient.add(pacient);
-        listOfPacient.add(pacientOne);
-        listOfPacient.add(pacientThree);
-        listOfPacient.add(pacientFour);
+        this.listOfPacient.add(pacient);
+        this.listOfPacient.add(pacientOne);
+        this.listOfPacient.add(pacientThree);
+        this.listOfPacient.add(pacientFour);
         /////////////////////////////////////////////////////
 
     }
