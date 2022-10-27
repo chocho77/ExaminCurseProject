@@ -10,9 +10,14 @@ import java.util.List;
 
 public class Service {
 
+    private TypeOfResearch typeOfResearch = new TypeOfResearch();
+
     private List<TypeOfResearch> listOfResearch= new ArrayList<>();
 
     private List<Pacient> listOfPacient = new ArrayList<>();
+
+    private List<MedicalTechnologist> listOfMedical = new ArrayList<>();
+
 
 
 
@@ -20,30 +25,26 @@ public class Service {
 
     }
 
-
+    public void LoadListOfTypeOfResearch(){
+        this.listOfResearch.add(this.typeOfResearch);
+    }
     public List<TypeOfResearch> getListOfResearch() {
 
         return this.listOfResearch;
-    }
-
-    public void setListOfResearch() {
-        TypeOfResearch typeOfResearchOne = new TypeOfResearch("Search name one", 45.0);
-        TypeOfResearch typeOfResearchTwo = new TypeOfResearch("Search name two", 34.45);
-        TypeOfResearch typeOfResearchThree = new TypeOfResearch("Search name three", 65.45);
-        TypeOfResearch typeOfResearchFour = new TypeOfResearch("Search name four", 123.22);
-
-        // Add into the list of Research
-        listOfResearch.add(typeOfResearchOne);
-        listOfResearch.add(typeOfResearchTwo);
-        listOfResearch.add(typeOfResearchThree);
-        listOfResearch.add(typeOfResearchFour);
-
     }
 
     public void setListOfPacient(List<Pacient> listOfPacients) {
 
          this.listOfPacient = listOfPacients;
 
+    }
+
+    public void setTypeOfResearch(TypeOfResearch typeOfResearch){
+        this.typeOfResearch = typeOfResearch;
+    }
+
+    public TypeOfResearch getTypeOfResearch() {
+        return this.typeOfResearch;
     }
 
     public List<Pacient> getListOfPacient() {

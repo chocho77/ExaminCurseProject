@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import lab.Lab;
+import models.MedicalTechnologist;
 import models.Pacient;
 import models.TypeOfResearch;
 import service.Service;
@@ -17,9 +18,16 @@ public class MainDisplayClass {
 
     private Pacient pacient = new Pacient();
 
+    private MedicalTechnologist medicalTechnologist = new MedicalTechnologist();
+
+    private TypeOfResearch typeOfResearch = new TypeOfResearch();
+
     private List<TypeOfResearch> lstTypeOfResearch = new ArrayList<>();
 
     private List<Pacient> lstPacient = new ArrayList<>();
+
+    private List<MedicalTechnologist> listMedicalTechnologists = new ArrayList<>();
+
     private boolean exit;
     private void setNameLab() {
         lab.setNameOfLab("City Clicnik");
@@ -81,8 +89,8 @@ public class MainDisplayClass {
         switch(choice) {
 
             case 1:
-                setListOfTypeOfResearch();
-                lstTypeOfResearch = service.getListOfResearch();
+
+                this.lstTypeOfResearch = this.service.getListOfResearch();
                 for (int i = 0; i < lstTypeOfResearch.size(); i++){
                     System.out.println("Type of Research : " + lstTypeOfResearch.get(i).getNameOfResearch() + " "
                                       + "Price of Research : " + lstTypeOfResearch.get(i).getPriceOfResearch());
@@ -118,10 +126,30 @@ public class MainDisplayClass {
 
                 break;
             case 5:
-                //
+                Scanner mt = new Scanner(System.in);
+                System.out.println("Enter a Medical Technologist name :");
+                String medicalName = mt.nextLine();
+                System.out.println("Enter name of Medical Research");
+                String medicalNameResearch = mt.nextLine();
+                System.out.println("Enter a price of Medical Research");
+                double priceMedicalResearch = mt.nextDouble();
+                this.typeOfResearch.setNameOfResearch(medicalNameResearch);
+                this.typeOfResearch.setPriceOfResearch(priceMedicalResearch);
+                this.service.setTypeOfResearch(this.typeOfResearch);
+                this.service.LoadListOfTypeOfResearch();
+                this.listMedicalTechnologists.add(new MedicalTechnologist(medicalName, this.service.getTypeOfResearch()));
+
+
+
                 break;
             case 6:
-                //
+
+                for(int i = 0; i < this.listMedicalTechnologists.size(); i++){
+                    System.out.println("Medical Technologist Name : " + this.listMedicalTechnologists.get(i).getName());
+                    System.out.println("Type Of Research Name : " + this.listMedicalTechnologists.get(i).getTypeOfResearch().getNameOfResearch());
+                    System.out.println(("Type of Research Price : " + this.listMedicalTechnologists.get(i).getTypeOfResearch().getPriceOfResearch()));
+                }
+
                 break;
             case 7:
                 //
@@ -139,10 +167,6 @@ public class MainDisplayClass {
         }
     }
 
-    private void setListOfTypeOfResearch(){
-
-        service.setListOfResearch();
-    }
 
     private void setListOfPacient(){
        this.service.setListOfPacient(this.lstPacient);
