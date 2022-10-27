@@ -8,15 +8,11 @@ import lab.Lab;
 import models.Pacient;
 import models.TypeOfResearch;
 import service.Service;
-import subdisplays.SubAddRemMedTechnologist;
-import subdisplays.SubAddRemPacient;
+
 
 public class MainDisplayClass {
 
     private Lab lab = new Lab();
-    private SubAddRemMedTechnologist subAddRemMedTechnologist = new SubAddRemMedTechnologist();
-    private SubAddRemPacient subAddRemPacient = new SubAddRemPacient();
-
     private Service service = new Service();
 
     private List<TypeOfResearch> lstTypeOfResearch = new ArrayList<>();
@@ -41,11 +37,13 @@ public class MainDisplayClass {
         System.out.println("\nPlease make a selection:  ");
         System.out.println("1. Type of research.");
         System.out.println("2. List of Pacints.");
-        System.out.println("3. Add / Remove Patients.");
-        System.out.println("4. Add / Remove MedicalTechnologist.");
-        System.out.println("5. Researching at the moment.");
-        System.out.println("6. Research Income now.");
-        System.out.println("7. Exit.");
+        System.out.println("3. Add Pacient.");
+        System.out.println("4. Remove Pacient.");
+        System.out.println("5. Add MedicalTechnologist.");
+        System.out.println("6. Remove MedicalTechnologist");
+        System.out.println("7. Researching at the moment.");
+        System.out.println("8. Research Income now.");
+        System.out.println("9. Exit.");
 
     }
 
@@ -61,7 +59,7 @@ public class MainDisplayClass {
     private int getInput() {
         Scanner sc = new Scanner(System.in);
         int choice = -1;
-        while(choice < 0 || choice > 7) {
+        while(choice < 0 || choice > 9) {
             try {
                 System.out.print("\nEnter your choice:");
                 choice = Integer.parseInt(sc.nextLine());
@@ -98,14 +96,26 @@ public class MainDisplayClass {
                 }
                 break;
             case 3:
-                subAddRemPacient.runMenu();
+                //subAddRemPacient.runMenu();
                 this.exit = true;
                 break;
             case 4:
-                subAddRemMedTechnologist.runMenu();
+                //subAddRemMedTechnologist.runMenu();
                 this.exit = true;
                 break;
+            case 5:
+                //
+                break;
+            case 6:
+                //
+                break;
             case 7:
+                //
+                break;
+            case 8:
+                //
+                break;
+            case 9:
                 System.out.println("Thank you for using our application");
                 this.exit = true;
                 break;
@@ -116,53 +126,13 @@ public class MainDisplayClass {
     }
 
     private void setListOfTypeOfResearch(){
+
         service.setListOfResearch();
     }
 
     private void setListOfPacient(){
+
         service.setListOfPacient();
     }
-
-    private void pickColor() {
-        int num = (int) (Math.random() * 4);
-        switch(num) {
-            case 0:
-                System.out.println("Green");
-                break;
-            case 1:
-                System.out.println("Red");
-                break;
-            case 2:
-                System.out.println("Blue");
-                break;
-            case 3:
-                System.out.println("White");
-                break;
-            default:
-                System.out.println("Black");
-        }
-    }
-
-    private void pickShape() {
-        int num = (int) (Math.random() * 4);
-        switch(num) {
-            case 0:
-                System.out.println("Square");
-                break;
-            case 1:
-                System.out.println("Circle");
-                break;
-            case 2:
-                System.out.println("Triangle");
-                break;
-            case 3:
-                System.out.println("Pyramid");
-                break;
-            default:
-        }
-
-    }
-
-
 
 }
