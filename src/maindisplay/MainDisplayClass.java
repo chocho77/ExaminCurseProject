@@ -15,6 +15,8 @@ public class MainDisplayClass {
     private Lab lab = new Lab();
     private Service service = new Service();
 
+    private Pacient pacient = new Pacient();
+
     private List<TypeOfResearch> lstTypeOfResearch = new ArrayList<>();
 
     private List<Pacient> lstPacient = new ArrayList<>();
@@ -89,19 +91,23 @@ public class MainDisplayClass {
                 break;
             case 2:
                 setListOfPacient();
-                lstPacient = service.getListOfPacient();
+                this.lstPacient = service.getListOfPacient();
                 for(int i = 0; i < lstPacient.size(); i++){
                     System.out.println("Pacient Name : " + lstPacient.get(i).getName() + " Amount of Health Insurance : " +
                             lstPacient.get(i).getHealthInsuranceAmount());
                 }
                 break;
             case 3:
-                //subAddRemPacient.runMenu();
-                this.exit = true;
+                Scanner scan = new Scanner(System.in);
+                System.out.println("Enter Pacient name: ");
+                String name = scan.nextLine();
+                System.out.println("Enter Pacient Insurance Health Amount : ");
+                double amount = scan.nextDouble();
+                this.lstPacient.add(new Pacient(name,amount));
+
                 break;
             case 4:
-                //subAddRemMedTechnologist.runMenu();
-                this.exit = true;
+
                 break;
             case 5:
                 //
@@ -131,8 +137,9 @@ public class MainDisplayClass {
     }
 
     private void setListOfPacient(){
+       this.service.setListOfPacient(this.lstPacient);
 
-        service.setListOfPacient();
     }
+
 
 }

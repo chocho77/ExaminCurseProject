@@ -7,8 +7,11 @@
     <list default="true" id="0bf8d34b-6bb3-4b0d-affa-d7166ed93dfb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/maindisplay/MainDisplayClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/maindisplay/MainDisplayClass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/subdisplays/SubAddRemMedTechnologist.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/subdisplays/SubAddRemPacient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/MenuDemoClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/submenus/SubMenu1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menus/submenus/SubMenu2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/AddRemovePacientService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
