@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import enumeration.TypeResearch;
 import lab.Lab;
 import models.MedicalTechnologist;
 import models.Pacient;
@@ -129,12 +130,25 @@ public class MainDisplayClass {
                 Scanner mt = new Scanner(System.in);
                 System.out.println("Enter a Medical Technologist name :");
                 String medicalName = mt.nextLine();
-                System.out.println("Enter name of Medical Research");
-                String medicalNameResearch = mt.nextLine();
-                System.out.println("Enter a price of Medical Research");
-                double priceMedicalResearch = mt.nextDouble();
-                this.typeOfResearch.setNameOfResearch(medicalNameResearch);
-                this.typeOfResearch.setPriceOfResearch(priceMedicalResearch);
+                System.out.println("Enter number between 1 to 4.");
+                System.out.println("This is a code number of type of research.");
+                System.out.println("1 - RED; 2-BLUE 3-YELLOW; 4-GREEN");
+                int codeNumber = mt.nextInt();
+                switch(codeNumber){
+                    case 1:
+                        this.typeOfResearch = this.service.returnTypeOfResearch(TypeResearch.RED);
+                        break;
+                    case 2:
+                        this.typeOfResearch = this.service.returnTypeOfResearch(TypeResearch.BLUE);
+                        break;
+                    case 3:
+                        this.typeOfResearch = this.service.returnTypeOfResearch(TypeResearch.YELLOW);
+                        break;
+                    case 4:
+                        this.typeOfResearch = this.service.returnTypeOfResearch(TypeResearch.GREEN);
+                        break;
+                }
+
                 this.service.setTypeOfResearch(this.typeOfResearch);
                 this.service.LoadListOfTypeOfResearch();
                 this.listMedicalTechnologists.add(new MedicalTechnologist(medicalName, this.service.getTypeOfResearch()));

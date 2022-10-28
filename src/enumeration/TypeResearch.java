@@ -1,2 +1,8 @@
-package enumeration;public enum TypeResearch {
+package enumeration;
+
+public enum TypeResearch {
+    RED,
+    BLUE,
+    YELLOW,
+    GREEN
 }
